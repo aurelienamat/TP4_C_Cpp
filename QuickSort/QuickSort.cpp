@@ -26,19 +26,43 @@ int partition(int arr[], int low, int high) {
 
 }
 
-void quicksort(int arr[], int low, int high) {
-    if (low < high) {
-        int pi = partition(arr, low, high);
-        quicksort(arr, low, pi);
-        quicksort(arr, pi + 1, high);
+void tribulle(int arr[], int low, int high) {
+
+    int pluspetit = 0, plusgrand = 0;
+
+    for (int j = low; j < high+1; j++) {
+
+        for (int i = low; i < high+1; i++) {
+            if (arr[i - 1] > arr[i]) {
+                pluspetit = arr[i];
+                plusgrand = arr[i - 1];
+                arr[i] = plusgrand;
+                arr[i - 1] = pluspetit;
+            }
+        }
+
     }
 }
 
+void quicksort(int arr[], int low, int high) {
+    if (low < high) {
+        if (high - low < 9) {
+            tribulle(arr, low, high);
+        }
+        else {
+            int pi = partition(arr, low, high);
+            quicksort(arr, low, pi);
+            quicksort(arr, pi + 1, high);
+        }
+    }
+}
+
+
 int main(int argc, char** argv)
 {
-    int tab[300000], val = 0, low = 0;
+    int tab[100000], val = 0, low = 0;
     int i = 0, taille = 0;
-    while (val != -1 && i <= 300000) {
+    while (val != -1 && i <= 100000) {
         if (val == -1) {
             break;
         }
