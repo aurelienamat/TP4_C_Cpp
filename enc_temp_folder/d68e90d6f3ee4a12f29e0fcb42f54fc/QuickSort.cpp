@@ -61,8 +61,8 @@ void quicksort(int arr[], int low, int high) {
 
 int main(int argc, char** argv)
 {
-    int tailletab = 100000, *point = NULL;;
-    int tab[100000], val = 0, low = 0;
+    int tailletab = 300000, *point = NULL;;
+    int tab[300000], val = 0, low = 0;
     int i = 0, taille = 0;
 
     point = (int*)malloc(tailletab * sizeof(int));
